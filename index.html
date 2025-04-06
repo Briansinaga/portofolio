@@ -1,40 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #f5f5f5;
-    }
-    h1 {
-      font-size: 2.5rem;
-    }
-  </style>
-</head>
-<body>
-  <div id="app">
-    <h1>{{ message }}</h1>
-  </div>
+<!-- Sebelumnya (❌ ini yang error di browser) -->
+<script type="module">
+  import { createApp } from 'vue';
+  createApp({ /* ... */ }).mount('#app');
+</script>
 
-  <script>
-    const { createApp } = Vue;
+<!-- Ganti dengan ini ✅ -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  const { createApp } = Vue;
 
-    createApp({
-      data() {
-        return {
-          message: 'Welcome to My Portfolio!'
-        }
-      }
-    }).mount('#app');
-  </script>
-</body>
-</html>
+  createApp({
+    data() {
+      return {
+        message: 'Hello from Vue via CDN!'
+      };
+    }
+  }).mount('#app');
+</script>
