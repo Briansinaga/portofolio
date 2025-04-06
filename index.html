@@ -1,35 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Vue</title>
-  <!-- Optional favicon -->
-  <link rel="icon" href="favicon.ico">
-  <!-- Styling -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
-
-    h1 {
-      color: #333;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vue CDN Sample</title>
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-  <!-- Root Vue element -->
+  <!-- Pastikan ini ada sebelum script Vue -->
   <div id="app"></div>
 
-  <!-- Vue CDN -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  
   <!-- Vue App -->
   <script>
     const { createApp } = Vue;
@@ -37,7 +18,7 @@
     createApp({
       data() {
         return {
-          message: 'Halo, selamat datang di portofolio saya!'
+          message: 'Halo dari Vue 3 lewat CDN!'
         };
       },
       template: `<h1>{{ message }}</h1>`
