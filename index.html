@@ -1,28 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vue CDN Sample</title>
-  <!-- Vue 3 CDN -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-</head>
-<body>
-  <!-- Pastikan ini ada sebelum script Vue -->
-  <div id="app"></div>
-
-  <!-- Vue App -->
-  <script>
-    const { createApp } = Vue;
-
-    createApp({
-      data() {
-        return {
-          message: 'Halo dari Vue 3 lewat CDN!'
-        };
-      },
-      template: `<h1>{{ message }}</h1>`
-    }).mount('#app');
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
