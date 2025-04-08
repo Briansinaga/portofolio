@@ -1,10 +1,19 @@
-<template >
-    <footer class="mt-8 border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white">
-        <div class="container p-12 flex justify-between">
-            <div class="text-white text-3xl font-bold ">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-purple-400">BRIAN SINAGA</span>
-            </div>
-            <p class="text-slate-600">All rights reserved.</p>
-        </div>
-    </footer>
+<template>
+  <footer class="border-t border-[#33353F] text-white bg-[#0a0f1a] z-10">
+    <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-2xl font-bold">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-purple-400">
+          BRIAN SINAGA
+        </span>
+      </div>
+
+      <p class="text-sm text-slate-500">
+        © {{ new Date().getFullYear() }} Brian Sinaga. All rights reserved.
+      </p>
+    </div>
+  </footer>
 </template>
+
+<script setup>
+// Year is automatically displayed
+</script>
