@@ -69,7 +69,7 @@ const Skills = ref([
   {
     id: 7,
     name: 'Laravel',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
   },
   {
     id: 8,

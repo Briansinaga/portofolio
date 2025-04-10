@@ -46,7 +46,7 @@
             icon="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png"
             label="LinkedIn"
             value="linkedin.com/in/briansinaga"
-            link="https://www.linkedin.com/in/briansinaga"
+            link="https://www.linkedin.com/in/brian-sinaga-8955b5286/"
           />
           <ContactItem
             icon="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png"
