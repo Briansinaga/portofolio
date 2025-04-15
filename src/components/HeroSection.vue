@@ -44,10 +44,11 @@
             </span>
           </p>
 
+          <!-- Tombol Download Resume -->
           <div class="mt-8">
             <a
               href="/resume.pdf"
-              download="resume.pdf"
+              download="brian_resume.pdf"
               class="inline-flex items-center px-6 py-3 border-2 border-purple-500 rounded-full text-white hover:bg-purple-600 transition"
             >
               <svg
@@ -67,8 +68,8 @@
                 />
                 <path
                   d="M1 17V18C1 18.7956 1.31607 19.5587 1.87868 20.1213C2.44129
-                20.6839 3.20435 21 4 21H14C14.7956 21 15.5587 20.6839 16.1213
-                20.1213 17 18.7956 17 18V17"
+                  20.6839 3.20435 21 4 21H14C14.7956 21 15.5587 20.6839 16.1213
+                  20.1213 17 18.7956 17 18V17"
                   stroke="#f59e0b"
                   stroke-width="2"
                   stroke-linecap="round"
