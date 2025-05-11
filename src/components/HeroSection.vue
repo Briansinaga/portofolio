@@ -47,8 +47,8 @@
           <!-- Tombol Download Resume -->
           <div class="mt-8">
             <a
-              href="/briansinaga.pdf"
-              download="briansinaga.pdf"
+              href="/resume.pdf"
+              download="resume.pdf"
               type="application/pdf"
               class="inline-flex items-center px-6 py-3 border-2 border-purple-500 rounded-full text-white hover:bg-purple-600 transition"
             >
