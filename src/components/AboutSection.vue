@@ -1,7 +1,7 @@
 <template>
   <section
     id="about"
-    class="relative text-white py-20 flex justify-center items-center flex-col min-h-[80vh] overflow-hidden w-full"
+    class="relative text-slate-900 py-20 flex justify-center items-center flex-col min-h-[80vh] overflow-hidden w-full"
   >
     <!-- Background Gradient -->
     <div class="absolute inset-0 z-0 overflow-hidden">
@@ -10,22 +10,22 @@
 
     <!-- Konten Utama -->
     <div
-      class="relative z-10 w-full max-w-4xl px-4 sm:px-6 xl:px-16 text-center"
+      class="relative z-10 w-full max-w-3xl px-4 sm:px-6 xl:px-16 text-center"
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      <h2 class="text-4xl sm:text-5xl font-bold mb-8 leading-tight">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-purple-400">About</span> Me
+      <h2 class="text-4xl sm:text-5xl font-bold mb-8 leading-tight mx-auto max-w-3xl">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-purple-400">Tentang</span> Saya
       </h2>
-      <p class="text-base sm:text-lg md:text-xl leading-relaxed text-white">
-        Hi, I am an Informatics Engineering student with an interest in Web Development.
-        Currently, I am looking for an internship opportunity to apply my skills and gain real-world experience
-        in the tech industry.
-        <br /><br />
-        I have a keen interest in HTML, CSS, and JavaScript, along with experience in modern frameworks like React and Vue.
-        I'm passionate about building responsive and user-friendly interfaces, and I'm excited to apply my skills in a
-        real-world environment as an intern.
-      </p>
+      <div class="text-justify space-y-6">
+        <p class="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700">
+          Saya seorang Fresh Graduate Teknik Informatika Universitas Advent Indonesia dengan minat dan fokus pada bidang Network Engineering. Saya memiliki pengalaman sebagai Network Support dan Network Engineer, dengan pengalaman dalam melakukan troubleshooting jaringan, monitoring perangkat, instalasi dan pemeliharaan perangkat jaringan, serta mendukung operasional jaringan.
+        </p>
+
+        <p class="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700">
+          Saya memiliki pemahaman dasar mengenai TCP/IP, IPv4, subnetting, VLAN, switching, routing, DHCP, DNS, Linux, dan cloud computing. Saya juga memiliki pengalaman dalam proyek implementasi infrastruktur jaringan kampus. Saya senang mempelajari teknologi baru, memiliki kemampuan problem solving dan analytical thinking, serta mampu bekerja secara mandiri maupun dalam tim. Saya terus mengembangkan kemampuan teknis untuk berkarier dan berkembang sebagai Network Engineer.
+        </p>
+      </div>
     </div>
   </section>
 </template>

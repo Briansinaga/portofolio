@@ -1,7 +1,7 @@
 <template>
   <section
     id="projects"
-    class="relative w-full min-h-screen py-24 bg-gradient-to-b from-[#0c0a20] to-[#0f0d29] overflow-hidden"
+    class="relative w-full min-h-screen py-24 bg-white overflow-hidden"
   >
     <!-- Background Blur Circles -->
     <div class="absolute inset-0 opacity-10 pointer-events-none z-0">
@@ -13,13 +13,13 @@
     <div class="relative z-10 w-full max-w-screen-xl mx-auto px-4">
       <div class="text-center mb-16">
         <h2
-          class="text-4xl font-bold text-white mb-4 px-4"
+          class="text-4xl font-bold text-slate-900 mb-4 px-4"
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          My
+          Proyek
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 via-purple-600 to-purple-400">
-            Projects
+            Saya
           </span>
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 mx-auto"></div>
@@ -30,19 +30,20 @@
         <div
           v-for="project in Projects"
           :key="project.id"
-          class="rounded-xl overflow-hidden shadow-2xl shadow-purple-900/20 bg-[#121638]/80 backdrop-blur-sm border border-[#2a2654] transform transition-all duration-300 hover:-translate-y-2 hover:shadow-purple-500/30 hover:scale-[1.02]"
+          @click="openProject(project)"
+          class="cursor-pointer rounded-xl overflow-hidden shadow-lg bg-white border border-slate-200 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:scale-[1.02]"
           data-aos="fade-up"
         >
           <!-- Project Image -->
           <div class="relative h-56 overflow-hidden">
             <img
               :src="project.image"
-              :alt="`Screenshot of ${project.title} project`"
+              :alt="`Tangkapan layar proyek ${project.title}`"
               class="w-full h-full object-cover"
               loading="lazy"
             />
             <div
-              class="absolute inset-0 bg-gradient-to-t from-[#121638] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-6"
+              class="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-6"
             >
               <div class="flex space-x-3">
                 <a
@@ -80,20 +81,72 @@
 
           <!-- Project Info -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
-            <p class="text-[#a0aec0] mb-6 text-sm">{{ project.description }}</p>
-            <div class="flex flex-wrap gap-2">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">{{ project.title }}</h3>
+            <p class="text-slate-600 mb-3 text-sm">{{ project.description }}</p>
+            <p class="text-sm text-slate-500 mb-4">Klik untuk melihat detail proyek dan beberapa foto.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Detail Modal -->
+      <div
+        v-if="selectedProject"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm"
+      >
+        <div class="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-white shadow-2xl">
+          <button
+            @click="closeProject"
+            class="absolute top-4 right-4 rounded-full bg-slate-100 p-3 text-slate-700 hover:bg-slate-200"
+            aria-label="Tutup detail proyek"
+          >
+            ✕
+          </button>
+
+          <div class="p-8">
+            <div>
+              <h3 class="text-3xl font-bold text-slate-900">{{ selectedProject.title }}</h3>
+              <p class="text-slate-600 mt-3 max-w-3xl">{{ selectedProject.longDescription }}</p>
+            </div>
+
+            <div class="mt-8 grid gap-4 lg:grid-cols-3">
               <div
-                v-for="technology in project.technologies"
-                :key="technology"
-                class="px-3 py-1 text-xs font-medium bg-purple-900/30 text-purple-300 rounded-full border border-purple-800/50"
+                v-for="image in selectedProject.images"
+                :key="image"
+                class="overflow-hidden rounded-3xl bg-slate-100 cursor-pointer"
+                @click="openImage(image)"
               >
-                {{ technology }}
+                <img
+                  :src="image"
+                  :alt="`${selectedProject.title} screenshot`"
+                  class="h-52 w-full object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <teleport to="body">
+        <div
+          v-if="selectedImage"
+          class="fixed inset-0 z-[99999] flex items-center justify-center bg-slate-950/95 p-4 backdrop-blur-sm"
+        >
+          <div class="relative w-full max-w-5xl">
+            <button
+              @click="selectedImage = null"
+              class="absolute top-4 right-4 rounded-full bg-slate-100 p-3 text-slate-700 hover:bg-slate-200"
+              aria-label="Tutup tampilan gambar"
+            >
+              ✕
+            </button>
+            <img
+              :src="selectedImage"
+              class="w-full h-[75vh] object-contain rounded-3xl bg-white"
+              alt="Tampilan penuh screenshot proyek"
+            />
+          </div>
+        </div>
+      </teleport>
     </div>
   </section>
 </template>
@@ -101,36 +154,64 @@
 <script setup>
 import { ref } from 'vue'
 
+const selectedProject = ref(null)
+const selectedImage = ref(null)
+
+const openProject = (project) => {
+  selectedProject.value = project
+  selectedImage.value = null
+}
+
+const closeProject = () => {
+  selectedProject.value = null
+  selectedImage.value = null
+}
+
+const openImage = (image) => {
+  selectedImage.value = image
+}
+
 const Projects = ref([
   {
     id: 1,
     category: 'web development',
     image: new URL('@/assets/GoClean.webp', import.meta.url).href,
     title: 'GoClean',
-    description: 'A website platform that provides cleaning services with booking, scheduling, and payment features.',
-    technologies: ['Vue.js', 'PHP', 'Tailwind CSS'],
-    gitURL: 'https://github.com/yourname/goclean',
-    webURL: 'https://goclean.example.com'
+    description: 'Website layanan kebersihan lengkap dengan pemesanan dan manajemen jadwal.',
+    longDescription: 'GoClean adalah platform layanan kebersihan yang mempermudah pengguna memesan berbagai paket kebersihan tanpa repot. Fitur utama meliputi dashboard pemesanan, kalender jadwal, detail paket layanan, manajemen teknisi, dan konfirmasi otomatis.',
+    images: [
+      new URL('@/assets/GoClean1.png', import.meta.url).href,
+      new URL('@/assets/Goclean2.png', import.meta.url).href,
+      new URL('@/assets/Goclean3.png', import.meta.url).href
+    ]
   },
   {
     id: 2,
-    category: 'web development',
-    image: new URL('@/assets/personalWeb.webp', import.meta.url).href,
-    title: 'Personal Web',
-    description: 'Personal portfolio website built with Vue and Express to showcase projects and skills.',
-    technologies: ['Vue 3', 'Vuex', 'Express'],
-    gitURL: 'https://github.com/yourname/personal-web',
-    webURL: 'https://yourportfolio.example.com'
+    category: 'network',
+    image: new URL('@/assets/ImplementasiJaringanKampus1.jpeg', import.meta.url).href,
+    title: 'Implementasi Infrastruktur Jaringan Kampus',
+    description: 'Pengelolaan dan Pengembangan Jaringan Internet di Universitas Advent Indonesia',
+    longDescription: 'Terlibat dalam pembangunan infrastruktur jaringan kampus dengan pemasangan Access Point, penarikan kabel LAN, pemasangan kotak perangkat jaringan, dan konfigurasi perangkat untuk mendukung konektivitas area kampus.',
+
+    images: [
+      new URL('@/assets/ImplementasiJaringanKampus1.jpeg', import.meta.url).href,
+      new URL('@/assets/ImplementasiJaringanKampus2.jpeg', import.meta.url).href,
+      new URL('@/assets/ImplementasiJaringanKampus3.jpeg', import.meta.url).href
+    ]
   },
   {
     id: 3,
-    category: 'web development',
-    image: new URL('@/assets/project.webp', import.meta.url).href,
-    title: 'Project 3',
-    description: 'A modern web application featuring advanced UI components and integration with backend services.',
-    technologies: ['Vue 3', 'Vuex', 'Express'],
-    gitURL: 'https://github.com/yourname/project3',
-    webURL: 'https://project3.example.com'
+    category: 'network',
+    image: new URL('@/assets/Labkomputerbaru1.jpeg', import.meta.url).href,
+    title: 'Pembangunan Laboratorium Komputer Baru',
+    description: 'Pembangunan laboratorium komputer baru di Universitas Advent Indonesia.',
+    longDescription: 'Terlibat dalam pembangunan laboratorium komputer baru yang terdiri dari 30 unit komputer dengan melakukan penarikan kabel LAN dan pemasangan jalur jaringan, membantu pemasangan serta konfigurasi dasar perangkat komputer, melakukan instalasi sistem operasi dan perangkat lunak pendukung pembelajaran, serta melakukan pengujian perangkat dan konektivitas jaringan sebelum laboratorium digunakan.',
+
+    images: [
+      new URL('@/assets/Labkomputerbaru1.jpeg', import.meta.url).href,
+      new URL('@/assets/Labkomputerbaru2.jpeg', import.meta.url).href,
+      new URL('@/assets/Labkomputerbaru3.jpeg', import.meta.url).href
+    ]
   }
 ])
 </script>

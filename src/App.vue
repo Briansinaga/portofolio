@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#111827] min-h-screen overflow-x-hidden">
+  <div class="bg-white text-slate-900 min-h-screen overflow-x-hidden">
     <!-- Wrap components in Suspense to handle loading -->
      <Suspense>
       <template #default>
@@ -8,6 +8,8 @@
             <NavBar />
             <HeroSection />
             <AboutSection />
+            <ExperienceSection />
+            <CertificateSection />
             <Skills />
             <LatestProjSection />
             <ContactSection />
@@ -30,6 +32,8 @@
 const NavBar = defineAsyncComponent(()=>import('@/components/NavBar.vue'));
 const HeroSection = defineAsyncComponent(()=>import('@/components/HeroSection.vue'));
 const AboutSection = defineAsyncComponent(()=>import('@/components/AboutSection.vue'));
+const ExperienceSection = defineAsyncComponent(()=>import('@/components/ExperienceSection.vue'));
+const CertificateSection = defineAsyncComponent(()=>import('@/components/CertificateSection.vue'));
 const LatestProjSection = defineAsyncComponent(()=>import('@/components/LatestProjSection.vue'));
 const Skills = defineAsyncComponent(()=>import('@/components/Skills.vue'));
 const ContactSection = defineAsyncComponent(()=>import('@/components/ContactSection.vue'));
@@ -41,6 +45,6 @@ import loadingSpinner from './components/loadingSpinner.vue';
 
 *{
   scrollbar-width: thin;
-  scrollbar-color: #111827 #f1f1f1;
+  scrollbar-color: #334155 #f1f1f1;
 }
 </style>

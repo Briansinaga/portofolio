@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative w-full min-h-[100vh] flex items-center justify-center bg-[#0a0f1a] overflow-hidden pt-20"
+    class="relative w-full min-h-[100vh] flex items-center justify-center bg-white text-slate-900 overflow-hidden pt-20"
     data-aos="zoom-in-up"
     id="home"
   >
@@ -15,9 +15,9 @@
       <div class="grid lg:grid-cols-2 items-center gap-10 py-20">
         <!-- Gambar -->
         <div class="flex justify-center lg:justify-start">
-          <div class="relative w-[250px] sm:w-[300px] lg:w-[350px] h-[250px] sm:h-[300px] lg:h-[350px] rounded-full overflow-hidden shadow-2xl border-4 border-white">
+          <div class="relative w-[250px] sm:w-[300px] lg:w-[350px] h-[250px] sm:h-[300px] lg:h-[350px] rounded-full overflow-hidden shadow-2xl border-4 border-slate-200">
             <img
-              src="@/assets/top_picture.png"
+              src="@/assets/top_picture.jpeg"
               alt="Hero pic"
               class="w-full h-full object-cover"
               loading="lazy"
@@ -28,7 +28,7 @@
 
         <!-- Teks -->
         <div class="text-center lg:text-left">
-          <h1 class="text-white font-bold text-4xl md:text-5xl lg:text-6xl leading-tight flex flex-wrap justify-center lg:justify-start">
+          <h1 class="text-slate-900 font-bold text-4xl md:text-5xl lg:text-6xl leading-tight flex flex-wrap justify-center lg:justify-start">
             <span
               v-for="(char, index) in titleText"
               :key="index"
@@ -40,17 +40,17 @@
           </h1>
           <p class="text-2xl md:text-3xl font-bold mt-4">
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 via-purple-600 to-purple-400">
-              Frontend Developer
+              Insinyur Jaringan
             </span>
           </p>
 
-          <!-- Tombol Download Resume -->
+          <!-- Tombol Unduh CV -->
           <div class="mt-8">
             <a
               href="/resume.pdf"
               download="resume.pdf"
               type="application/pdf"
-              class="inline-flex items-center px-6 py-3 border-2 border-purple-500 rounded-full text-white hover:bg-purple-600 transition"
+              class="inline-flex items-center px-6 py-3 border border-slate-300 rounded-full text-slate-900 bg-white shadow-sm hover:bg-slate-50 transition duration-200"
             >
               <svg
                 class="mr-2"
@@ -76,7 +76,7 @@
                   stroke-linecap="round"
                 />
               </svg>
-              Download Resume
+              Unduh CV
             </a>
           </div>
         </div>
@@ -90,9 +90,14 @@ import { ref, onMounted } from 'vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init();
+AOS.init({
+  once: false,
+  mirror: true,
+  duration: 800,
+  easing: 'ease-out-cubic'
+});
 
-const titleText = ref("Hi, I'm Brian ".split(""));
+const titleText = ref("Hai, saya Brian ".split(""));
 const showTitle = ref(Array(titleText.value.length).fill(false));
 
 const animateText = () => {

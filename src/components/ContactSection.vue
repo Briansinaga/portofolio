@@ -1,6 +1,6 @@
 <template>
   <section
-    class="text-white py-20 px-4 xl:px-16 bg-gradient-to-b from-[#0c0a20] to-[#0f0d29] min-h-screen"
+    class="text-slate-900 py-20 px-4 xl:px-16 bg-white min-h-screen"
     id="contact"
   >
     <h2
@@ -8,11 +8,11 @@
       data-aos="fade-up"
       data-aos-duration="1000"
     >
-      Let's
+      Ayo
       <span
         class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 via-purple-600 to-purple-400"
       >
-        Connect
+        Terhubung
       </span>
     </h2>
 
@@ -23,8 +23,8 @@
     >
       <!-- Contact Info -->
       <div class="space-y-6">
-        <p class="text-[#adb7be] max-w-md">
-          I'm always open to discussing new opportunities, collaborations, or just chatting about web development. Feel free to reach out through any of the platforms below!
+        <p class="text-slate-600 max-w-md">
+          Saya selalu terbuka untuk berdiskusi tentang jaringan komputer, Network Engineering, peluang baru, kolaborasi, atau sekadar berbagi pengetahuan seputar teknologi jaringan. Silakan hubungi saya melalui platform di bawah ini!
         </p>
 
         <div class="space-y-5">
@@ -63,7 +63,7 @@
 
       <!-- Contact Form -->
       <div
-        class="bg-[#111a3e] rounded-2xl p-6 border border-[#1f1641] shadow-xl"
+        class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-xl"
         data-aos="fade-left"
         data-aos-duration="1400"
       >
@@ -84,30 +84,30 @@
               id="email"
               name="email"
               placeholder="you@example.com"
-              class="w-full p-3 rounded-lg bg-[#111827] text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              class="w-full p-3 rounded-lg bg-white text-slate-900 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               required
             />
           </div>
 
           <div>
-            <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+            <label for="subject" class="block text-sm font-medium mb-2">Subjek</label>
             <input
               type="text"
               id="subject"
               name="subject"
-              placeholder="Subject"
-              class="w-full p-3 rounded-lg bg-[#111827] text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              placeholder="Subjek"
+              class="w-full p-3 rounded-lg bg-white text-slate-900 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               required
             />
           </div>
 
           <div>
-            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+            <label for="message" class="block text-sm font-medium mb-2">Pesan</label>
             <textarea
               id="message"
               name="message"
-              placeholder="Let's talk about..."
-              class="w-full p-3 rounded-lg bg-[#111827] text-gray-100 min-h-[120px] resize-none focus:outline-none focus:ring-2 focus:ring-purple-600"
+              placeholder="Mari kita bicarakan..."
+              class="w-full p-3 rounded-lg bg-white text-slate-900 min-h-[120px] resize-none border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               required
             ></textarea>
           </div>
@@ -116,7 +116,7 @@
             type="submit"
             class="w-full py-3 rounded-full text-white font-medium bg-gradient-to-r from-purple-700 to-purple-500 hover:from-purple-800 hover:to-purple-600 transition duration-300"
           >
-            Send Message
+            Kirim Pesan
           </button>
         </form>
       </div>
@@ -140,7 +140,7 @@ export default defineComponent({
       render() {
         return h('div', { class: 'flex items-center', 'data-aos': 'fade-right' }, [
           h('div', {
-            class: 'p-3 bg-[#1c2441] rounded-full border border-[#2e2956] w-12 h-12 flex justify-center items-center'
+            class: 'p-3 bg-slate-100 rounded-full border border-slate-200 w-12 h-12 flex justify-center items-center'
           }, [
             h('img', {
               src: this.icon,

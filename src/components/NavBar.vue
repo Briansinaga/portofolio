@@ -29,7 +29,7 @@
         <li v-for="item in Menu" :key="item.name">
           <a
             :href="item.href"
-            @click="scrollToSection(item.href)"
+            @click.prevent="scrollToSection(item.href)"
             class="block text-lg hover:text-purple-300 transition"
           >
             {{ item.name }}
@@ -42,13 +42,16 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import AOS from 'aos';
 
 const Menu = ref([
-  { name: 'Home', href: '#home' },
-  { name: 'About Me', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Beranda', href: '#home' },
+  { name: 'Tentang Saya', href: '#about' },
+  { name: 'Pengalaman', href: '#experience' },
+  { name: 'Sertifikat', href: '#certificates' },
+  { name: 'Keahlian', href: '#skills' },
+  { name: 'Proyek', href: '#projects' },
+  { name: 'Kontak', href: '#contact' },
 ]);
 
 const isMenuOpen = ref(false);
@@ -57,7 +60,15 @@ const scrollToSection = (href) => {
   isMenuOpen.value = false;
   const section = document.querySelector(href);
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const extraSpacing = 36; // additional gap so section isn't too close to header
+    const top = section.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraSpacing;
+    window.scrollTo({ top, behavior: 'smooth' });
+    setTimeout(() => {
+      AOS.refreshHard();
+      window.dispatchEvent(new Event('scroll'));
+    }, 600);
   }
 };
 
